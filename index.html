@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkSphere</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="ashboard">
+        <div id="Sidebar" class="Sidebar">
+            <button id="add-worker">Add New Worker</button>
+            <div class="employee-list">
+
+            </div>
+        </div>
+        <div id="MainArea" class="MainArea">
+            <div class="zone" id="zone1">
+                <h3>Zone 1 - Conference Room</h3>
+                <button class="add">+</button>
+            </div>
+            <div class="zone" id="zone2">
+                <h3>Zone 2 - Reception</h3>
+                <button class="add">+</button>
+            </div>
+            <div class="zone" id="zone3">
+                <h3>Zone 3 - Server Room</h3>
+                <button class="add">+</button>
+            </div>
+            <div class="zone" id="zone4">
+                <h3>Zone 4 - Security</h3>
+                <button class="add">+</button>
+            </div>
+            <div class="zone" id="zone5">
+                <h3>Zone 5 - Staff Room</h3>
+                <button class="add">+</button>
+            </div>
+            <div class="zone" id="zone6">
+                <h3>Zone 6 - Archive</h3>
+                <button class="add">+</button>
+            </div>
+        </div>
+    </section>
+    <div id="selectWorkerModal" class="modal">
+        <div class="modal-content">
+            <span id="closeSelectWorker" class="close">&times;</span>
+            <h2>Select Worker for Zone</h2>
+            <select id="workerSelect">
+            <option value="">-- Select Worker --</option>
+            </select>
+            <button id="addSelectedWorker">Add</button>
+        </div>
+    </div>
+    <div id="modal">
+        <div class="modal-content">
+            <form id="worker-form">
+                <span id="close-form" class="close">&times;</span>
+                <h2>Add New workers</h2>
+                <input type="text" name="name" placeholder="Full Name" id="name" required>
+                <select name="role" required id="role">
+                    <option value="">Select Role</option>
+                    <option value="Receptionist">Receptionist</option>
+                    <option value="Technician IT">Technician IT</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Security">Security</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="url" id="photo" placeholder="Photo URL" required>
+                <input type="email" name="email" placeholder="Email" required id="email">
+                <input type="tel" name="phone" placeholder="Phone Number" required id="phone">
+                <div id="experiences">
+                    <button type="button" id="addExperience">Add Experience</button>
+                </div>
+                <button type="submit" id="save-worker">Save</button>
+            </form>
+        </div>
+    </div>
+    <ul id="unassignedList"></ul>
+    <div id="workerInfoModal">
+        <div class="modal-content-info">
+            <span id="closeWorkerInfo" class="close">&times;</span>
+            <div class="infopro" style="display: flex;justify-content: space-between; gap: 80px;">
+                <div >
+                    <img id="workerInfoPhoto" src="" style="width:160px; height:150px; border-radius:20%;box-shadow: 2px 2px 5px 3px rgb(4, 45, 10);">
+                </div>
+                <div class="info-pro">
+                    <h2 id="workerInfoName" style="padding: 7px;color: beige;font-weight: bold;letter-spacing: 0.9px; font-size: 26px;"></h2>
+                    <p id="workerInfoRole" style="padding: 6px;"></p>
+                    <p id="workerInfoEmail" style="padding: 6px;"></p>
+                    <p id="workerInfoPhone" style="padding: 6px;"></p>
+                </div>
+            </div>
+            <h3 style="color: beige;font-weight: bold;letter-spacing: 0.9px; font-size: 26px;">Expériences:</h3>
+            <ul id="workerInfoExp"></ul>
+            <p id="workerInfoZone"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
