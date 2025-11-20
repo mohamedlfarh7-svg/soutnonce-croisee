@@ -184,7 +184,6 @@ function showZoneWorkers() {
                         <p class="role">${worker.role}</p>
                     </div>
                     <button onclick="deleteWorkerFromZone(${worker.id})" class="remove">X</button>
-                    <button onclick="editWorker(${worker.id})" class="edit">Edit</button>
                 `;
 
                 z.appendChild(card);
@@ -210,7 +209,7 @@ function showInfo(id) {
     const closeWorkerInfo = document.querySelector("#closeWorkerInfo").addEventListener('click',()=>{workerInfoModal.style.display= 'none';})
     document.getElementById('workerInfoPhoto').src = w.photo;
     document.getElementById('workerInfoName').textContent = w.name;
-    document.getElementById('workerInfoRole').textContent = "Rôle: " + w.role;
+    document.getElementById('workerInfoRole').textContent = "Role: " + w.role;
     document.getElementById('workerInfoEmail').textContent = "Email: " + w.email;
     document.getElementById('workerInfoPhone').textContent = "Téléphone: " + w.phone;
 
@@ -259,7 +258,6 @@ function showZoneCounts() {
             counter.className = "zone-counter";
             z.prepend(counter);
         }
-
         counter.textContent = `${current} / ${max}`;
     });
 }

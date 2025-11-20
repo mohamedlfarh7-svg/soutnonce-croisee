@@ -50,7 +50,7 @@ body {
     display: flex;
     align-items: center;
     height: 65px;
-    background:linear-gradient(to left , rgb(16, 208, 16) ,rgb(233, 232, 232)) ;
+    background: linear-gradient(135deg, #5ad862, #39b23f, #07540b); ;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transition: transform 0.2s;
@@ -83,7 +83,7 @@ body {
 
 .employee-card .role {
     font-size: 12px;
-    color: #777;
+    color: #bbbbbb;
 }
 
 .employee-card .remove {
@@ -106,7 +106,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    background-color: #095303;
+    background: linear-gradient(135deg, #49a04d, #2e7d32,#1b5e20 );
     overflow-y: auto;
     justify-content: center;
     justify-self: center;
@@ -114,17 +114,20 @@ body {
 }
 
 .zone{
-    background-color: #e0e0e0;
     border-radius: 8px;
     padding: 15px;
     min-height: 300px;
     width: 392px;
     position: relative;
-    background:linear-gradient(to right , rgb(16, 208, 16) ,rgb(233, 232, 232)) !important;
+    background: linear-gradient(135deg, #085f0e, #2bd034, #8de391);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     
 }
-
+.zone:hover {
+    transform: translateY(-5px); 
+}
 .zone h3 {
+    color: #f0f0e0;
     margin-bottom: 10px;
     font-size: 18px;
     color:beige;
@@ -145,7 +148,11 @@ body {
     right: 15px;
     font-size: 18px;
 }
-
+.zone .add:hover {
+    background-color: #1e7e34;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
 #modal {
     display: none;
     justify-content: center;
@@ -281,7 +288,7 @@ body {
     padding: 30px 25px;
     width: 100%;
     max-width: 700px;
-    background:linear-gradient(to bottom , green , rgba(255, 255, 255, 0.714));
+    background: linear-gradient(180deg, #045709, #37ad3b, rgba(255, 255, 255, 0.7));
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
@@ -340,7 +347,6 @@ body {
     border-radius: 6px;
     width: fit-content;
 }
-
 @media (min-width:769px) and (max-width:1024px) {
     .dashboard, .ashboard {
         flex-direction: column;
@@ -413,7 +419,7 @@ body {
 }
 
 @media (max-width: 767px) {
-        .dashboard, .ashboard {
+    .dashboard, .ashboard {
         flex-direction: column;
     }
     #Sidebar {
@@ -422,13 +428,14 @@ body {
         border-right: none;
         border-bottom: 2px solid #ddd;
         padding: 15px;
+        height: 350px;
         gap: 10px;
     }
 
     .employee-list {
         flex-direction: column;
         gap: 10px;
-
+        overflow-y: auto;
     }
 
     #MainArea {
@@ -444,72 +451,72 @@ body {
         position: relative;
     }
 
-.zone h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-
-.zone .add {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.zone .add:hover {
-    background-color: #218838;
-}
-
-    .employee-card img {
-        width: 35px;
-        height: 35px;
+    .zone h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
     }
 
-    #worker-form input,
-    #worker-form select,
-    #worker-form button,
-    #workerSelect,
-    #addSelectedWorker {
-        font-size: 13px;
-        padding: 8px;
+    .zone .add {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 18px;
+        transition: all 0.3s ease;
     }
 
-    .modal-content {
-        width: 90%;
-        padding: 15px;
-    }
-    .modal-content-info{
-        width: 95%;
-        padding: 20px;
+    .zone .add:hover {
+        background-color: #218838;
     }
 
-    #workerInfoPhoto{
-        width: 120px;
-        height: 110px;
-    }
+        .employee-card img {
+            width: 35px;
+            height: 35px;
+        }
 
-    .infopro{
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
+        #worker-form input,
+        #worker-form select,
+        #worker-form button,
+        #workerSelect,
+        #addSelectedWorker {
+            font-size: 13px;
+            padding: 8px;
+        }
 
-    #workerInfoExp h3,
-    .info-pro h2{
-        font-size: 20px;
-    }
+        .modal-content {
+            width: 90%;
+            padding: 15px;
+        }
+        .modal-content-info{
+            width: 95%;
+            padding: 20px;
+        }
 
-    #workerInfoExp li,
-    .info-pro p{
-        font-size: 14px;
-    }
+        #workerInfoPhoto{
+            width: 120px;
+            height: 110px;
+        }
+
+        .infopro{
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        #workerInfoExp h3,
+        .info-pro h2{
+            font-size: 20px;
+        }
+
+        #workerInfoExp li,
+        .info-pro p{
+            font-size: 14px;
+        }
 
 }
