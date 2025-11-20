@@ -6,17 +6,18 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #22ff00;
+    background-color: #218838 ;
+   
 }
-
-.dashboard, .ashboard {
+ .ashboard {
     display: flex;
     height: 100vh;
+    background-color: #021200;
 }
 
 #Sidebar, .Sidebar {
     width: 250px;
-    background-color: #f1f1f1;
+    background:linear-gradient(to right , rgb(1, 48, 13) ,rgb(3, 80, 2));
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -105,8 +106,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    background-color: #fff;
+    background-color: #095303;
     overflow-y: auto;
+    justify-content: center;
+    justify-self: center;
+    font-family: Arial, sans-serif;
 }
 
 .zone{
@@ -116,14 +120,16 @@ body {
     min-height: 300px;
     width: 392px;
     position: relative;
-    background:linear-gradient(to right , rgb(16, 208, 16) ,rgb(233, 232, 232));
+    background:linear-gradient(to right , rgb(16, 208, 16) ,rgb(233, 232, 232)) !important;
+    
 }
 
-.zone h3{
+.zone h3 {
     margin-bottom: 10px;
     font-size: 18px;
     color:beige;
     font-weight: bold;
+
 }
 
 .zone .add{
@@ -312,17 +318,27 @@ body {
     letter-spacing: 0.9px;
      font-size: 26px;
 }
-.info-pro p{
+#workerInfoRole,#workerInfoEmail,#workerInfoPhone{
     font-weight: bold;
     text-align: center;
     letter-spacing: 1px;
-    padding: 6;
+    margin: 5px;;
 }
 #workerInfoPhoto{
     width:160px; 
     height:150px;
     border-radius:20%;
     box-shadow: 2px 2px 5px 3px rgb(4, 45, 10);
+}
+.zone-counter {
+    font-weight: bold;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 8px;
+    background: rgba(255,255,255,0.6);
+    padding: 3px 8px;
+    border-radius: 6px;
+    width: fit-content;
 }
 
 @media (min-width:769px) and (max-width:1024px) {

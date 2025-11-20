@@ -29,6 +29,7 @@ function updateUI() {
     localStorage.setItem("workers", JSON.stringify(addwork));
     showworkers();
     showZoneWorkers();
+    showZoneCounts();
 }
 
 function canAssign(role, zone) {
@@ -160,7 +161,7 @@ addSelectedWorker.addEventListener('click', () => {
 
     const w = addwork.find(w => w.id === selectedId);
     if(w) {
-        w.assignedZone = selectedZone;
+        assignWorker(w, selectedZone);
         updateUI();
         selectWorkerModal.style.display = "none";
     }
@@ -183,6 +184,7 @@ function showZoneWorkers() {
                         <p class="role">${worker.role}</p>
                     </div>
                     <button onclick="deleteWorkerFromZone(${worker.id})" class="remove">X</button>
+                    <button onclick="editWorker(${worker.id})" class="edit">Edit</button>
                 `;
 
                 z.appendChild(card);
@@ -220,4 +222,47 @@ function showInfo(id) {
         `
     });
 }
+const zoneLimits = {
+    "Zone 1 - Conference Room": 8,
+    "Zone 2 - Reception": 2,
+    "Zone 3 - Server Room": 3,
+    "Zone 4 - Security": 3,
+    "Zone 5 - Staff Room": 10,
+    "Zone 6 - Archive": 4
+};
+function canAddToZone(zoneName) {
+    const currentWorkers = addwork.filter(w => w.assignedZone === zoneName).length;
+    const max = zoneLimits[zoneName];
+
+    return currentWorkers < max;
+}
+function assignWorker(worker, zoneName) {
+    if (!canAddToZone(zoneName)) {
+        alert("Cette zone a atteint le nombre maximum d'employés !");
+        selectWorkerModal.style.display='none';
+        return;
+    }
+
+    worker.assignedZone = zoneName;
+    updateUI();
+    showZoneCounts();
+}
+function showZoneCounts() {
+    zone.forEach(z => {
+        const zoneName = z.querySelector("h3").textContent;
+        const current = addwork.filter(w => w.assignedZone === zoneName).length;
+        const max = zoneLimits[zoneName];
+
+        let counter = z.querySelector(".zone-counter");
+        if (!counter) {
+            counter = document.createElement("div");
+            counter.className = "zone-counter";
+            z.prepend(counter);
+        }
+
+        counter.textContent = `${current} / ${max}`;
+    });
+}
+
+
 updateUI();
