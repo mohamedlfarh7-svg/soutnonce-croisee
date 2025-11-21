@@ -171,7 +171,6 @@ function showZoneWorkers() {
     zone.forEach(z => {
         const zoneName = z.querySelector("h3").textContent;
         z.querySelectorAll(".employee-card").forEach(e => e.remove());
-
         addwork.forEach(worker => {
             if (worker.assignedZone === zoneName) {
                 const card = document.createElement('div');
@@ -190,6 +189,27 @@ function showZoneWorkers() {
             }
         });
     });
+const zoneSpecial = [
+    "Zone 2 - Reception",
+    "Zone 3 - Server Room",
+    "Zone 4 - Security",
+    "Zone 6 - Archive"
+];
+
+zoneSpecial.forEach(name => {
+    const z = Array.from(zone).find(el => el.querySelector("h3").textContent === name);
+    if (z) {
+        const count = addwork.filter(w => w.assignedZone === name).length;
+        if (count === 0) {
+            z.style.border = '2px solid red';
+            z.style.background= 'linear-gradient(135deg, #b00b11ff, #ca3434ff, #ff8f8fff)';
+        } else {
+            z.style.border = '';
+            z.style.background = '';
+        }
+    }
+});
+
 }
 
 function deleteWorkerFromZone(id) {
@@ -241,7 +261,6 @@ function assignWorker(worker, zoneName) {
         selectWorkerModal.style.display='none';
         return;
     }
-
     worker.assignedZone = zoneName;
     updateUI();
     showZoneCounts();
